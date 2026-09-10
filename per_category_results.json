@@ -1,0 +1,22 @@
+{
+  "normal": {
+    "n": 9711,
+    "detection_rate": 0.9729
+  },
+  "dos": {
+    "n": 7460,
+    "detection_rate": 0.7723
+  },
+  "probe": {
+    "n": 2421,
+    "detection_rate": 0.7323
+  },
+  "r2l": {
+    "n": 2885,
+    "detection_rate": 0.0634
+  },
+  "u2r": {
+    "n": 67,
+    "detection_rate": 0.0896
+  }
+}
