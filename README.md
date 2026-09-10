@@ -21,9 +21,7 @@ honest about what it can and cannot do.
 ## Motivation
 
 This is a student project built for two goals: to genuinely learn classical
-ML applied to a security problem, and to have a resume project that is
-real and defensible, rather than one that name-drops technologies without
-depth behind them.
+ML applied to a security problem,
 
 ## Dataset
 
@@ -31,15 +29,6 @@ depth behind them.
 Cup / DARPA intrusion detection dataset). Source files: `KDDTrain+.txt` /
 `KDDTest+.txt`.
 
-Why this dataset:
-- It's the standard, citable benchmark for classical ML-based intrusion
-  detection — heavily used in academic literature, so results are
-  comparable and defensible.
-- Unlike the original KDD'99 dataset, NSL-KDD removes duplicate records,
-  which prevented models from trivially memorizing repeated rows.
-- It's tabular and feature-engineered already (each row is a *summarized
-  connection*, not raw packets), which keeps the ML side classical and
-  explainable — appropriate for this project's scope.
 
 **Size:** 125,973 training rows, 22,544 test rows. 41 raw features per row
 (one dropped as constant — see Preprocessing) plus the attack label.
@@ -67,18 +56,6 @@ well-documented property of NSL-KDD, not a bug in this project's split.
 | r2l | 995 | remote-to-local (e.g. guess_passwd, ftp_write) |
 | u2r | 52 | user-to-root privilege escalation (e.g. buffer_overflow) |
 
-**Important limitations of this dataset:**
-- It's from simulated military network traffic from the late 1990s. Modern
-  traffic (encrypted-by-default, cloud-native, IoT) looks structurally
-  different. A model trained here will **not** generalize to a modern
-  production network without retraining on modern traffic.
-- R2L and U2R classes have very few examples (995 and 52 rows respectively,
-  out of 125,973) — this project's model, honestly, performs poorly on
-  these categories (see Evaluation). This is a real, reported limitation,
-  not smoothed over.
-- The data represents pre-aggregated connection records, not raw packets —
-  this project doesn't do any packet-level parsing or deep packet
-  inspection.
 
 ## Approach / ML pipeline
 
